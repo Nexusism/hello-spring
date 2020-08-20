@@ -6,6 +6,7 @@ import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 //*********************서비스에 필요한 로직- 메소드 모음
 //************MVC의 징검다리역할, 그 외 복잡한것들은 서비스에.
 
+@Transactional
 public class MemberService {
     //Test 생성 = ctrl+shift+T
 

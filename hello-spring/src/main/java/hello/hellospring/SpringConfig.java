@@ -1,6 +1,7 @@
 package hello.hellospring;
 
 import hello.hellospring.repository.JpaMemberRepository;
+import hello.hellospring.repository.SpringDataJpaMemberRepository;
 import hello.hellospring.service.MemberService;
 
 import hello.hellospring.repository.MemberRepository;
@@ -12,13 +13,10 @@ import javax.persistence.EntityManager;
 
 @Configuration
 public class SpringConfig {
+    private final MemberRepository memberRepository;
 
-
-    private EntityManager em;
-
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
@@ -30,6 +28,6 @@ public class SpringConfig {
     public MemberRepository memberRepository(){
         //return new MemoryMemberRepository();
  //       return new JdbcMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
+        //return new JpaMemberRepository(em);
     }
 }
